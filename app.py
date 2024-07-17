@@ -1,21 +1,14 @@
-from flask import Flask, render_template, request
-from src.module import Predictor
+import streamlit as st
+from src.module import load_cache_resources
 
-app = Flask(__name__)
-predictor = Predictor()
+st.set_page_config("Spam Classifier")
+st.title("Spam Classifier")
+predictor = load_cache_resources()
 
-@app.route('/')
-@app.route('/index')
-def index():
-    return render_template('index.html')
+message = st.text_input("Enter the message:")
+submit = st.button("Submit", type='primary')
 
-@app.route('/predict', methods=['POST'])
-def predict():
-    message = request.form['message']
-    result = predictor.predict_class(message)
-
-    return render_template('index.html', result=result)
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
+if submit:
+    with st.spinner("Predicting..."):
+        prediction = predictor.predict_class(message)
+        st.write(f":blue[Result]: {prediction}")
