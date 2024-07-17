@@ -2,10 +2,12 @@ import os, string, re, pickle
 import pandas as pd
 import numpy as np
 import streamlit as st
+import nltk
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 
+nltk.download('stopwords')
 stop_words = stopwords.words('english')
 @st.cache_data
 def load_cache_resources():
