@@ -2,7 +2,6 @@ import os, string, re, pickle
 import pandas as pd
 import numpy as np
 import streamlit as st
-from matplotlib import pyplot as plt
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
