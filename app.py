@@ -1,8 +1,9 @@
 import streamlit as st
 from src.module import load_cache_resources
 
-st.set_page_config("Spam Classifier")
-st.title("Spam Classifier")
+st.set_page_config("Spam Classifier", page_icon="speech_balloon")
+st.title(":speech_balloon:Spam Classifier")
+st.caption("The model accuracy is 98.3 %, precision is 100 % and f1 score is 92.2 %")
 predictor = load_cache_resources()
 
 message = st.text_input("Enter the message:")
