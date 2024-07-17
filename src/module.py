@@ -8,6 +8,7 @@ from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 
 nltk.download('stopwords')
+nltk.download('punkt')
 stop_words = stopwords.words('english')
 @st.cache_data
 def load_cache_resources():
