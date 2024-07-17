@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Classifier</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff; /* Light gray background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background-color: #ffffff; /* White container background */
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft box-shadow for container */
+            border-radius: 8px; /* Rounded corners */
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333333; /* Dark gray text color */
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333333; /* Dark gray text color */
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #1a237e; /* Navy blue border */
+            margin-bottom: 10px;
+            border-radius: 4px; /* Rounded corners for input */
+            outline: none; /* Remove outline */
+        }
+        input[type="text"]:focus {
+            border-color: #3f51b5; /* Darker navy blue on focus */
+        }
+        input[type="submit"] {
+            background-color: #1a237e; /* Navy blue background for button */
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            text-decoration: none;
+            cursor: pointer;
+            text-align: center;
+            font-size: 16px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border-radius: 4px; /* Rounded corners for button */
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #ffffff; /* White background for result */
+            border: 1px solid #cccccc; /* Light gray border */
+            border-radius: 4px; /* Rounded corners for result */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft box-shadow */
+        }
+        .result h3 {
+            color: #333333; /* Dark gray text color for result header */
+        }
+        .result p {
+            color: #666666; /* Medium gray text color for result content */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Spam Classifier</h1>
+        <form action="/predict" method="post">
+            <label for="message">Enter your message:</label>
+            <input type="text" id="message" name="message" placeholder="Type your message here..." required>
+            <input type="submit" value="Predict">
+        </form>
+
+        {% if result %}
+        <div class="result">
+            <h3>Result:</h3>
+            <p>{{ result }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
